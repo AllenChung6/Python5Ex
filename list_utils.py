@@ -1,6 +1,5 @@
 import math
 from typing import List
-from math import ceil
 
 
 def get_item_at_position(list_in: List, pos: int) -> List:
@@ -54,14 +53,17 @@ def gen_list_of_nums(n: int) -> List[int]:
 
 
 def half_list(list_in: List, half: int) -> List:
-    first_half = list_in[:half]
-    second_half = list_in[half:]
+    # get half mod first. then make if statement if half ==1
+    length = len(list_in)
+    middle = math.ceil(length / 2)
 
-    if len(list_in) % 2 == 1:
-        math.ceil(half)
-        return second_half
-    else:
+    first_half = list_in[:middle]
+    second_half = list_in[-middle:]
+
+    if half == 1:
         return first_half
+    elif half == 2:
+        return second_half
 
     """
     Given a list, this function will return a new list that contains half of the items in the list_in parameter.
